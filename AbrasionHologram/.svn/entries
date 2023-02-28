@@ -1,0 +1,81 @@
+9
+
+dir
+56
+http://agate.msoe.edu/svn/hologram/trunk/Software/AbrasionHologram
+http://agate.msoe.edu/svn/hologram
+
+
+
+2008-10-12T19:50:45.227672Z
+56
+millermj
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0
+
+Creator
+dir
+
+Viewer
+dir
+
+AbrasionHologram.sln
+file
+96
+
+
+
+2008-10-23T01:51:16.203125Z
+e5b23cb65b05cf775f851615a8ca2af0
+2008-10-23T05:26:43.263563Z
+96
+millermj
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4908
+
+Shared
+dir
+
+DrawableObjects
+dir
+

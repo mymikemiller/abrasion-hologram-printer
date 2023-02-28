@@ -1,0 +1,77 @@
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Drawing;
+
+//namespace Utility
+//{
+//    /// <summary>
+//    /// Represents an arc section that can be drawn on the screen. Units are in pixels.
+//    /// </summary>
+//    public struct ViewArcSection
+//    {
+//        /// <summary>The square defining the circle along which the arc will be drawn</summary>
+//        public RectangleF ArcSquare { get; private set; }
+
+//        /// <summary>The center-point of the circle along which the arc will be drawn</summary>
+//        public PointD Center { get; private set; }
+
+//        public double Radius { get; private set; }
+
+//        /// <summary>The angle (in degrees) at which to start drawing the arc. Angle values begin at 0 at the positive x axis and increase counterclockwise.</summary>
+//        public float StartAngle { get; private set; }
+
+//        /// <summary>The angle (in degrees) at which to stop drawing the arc. Angle values begin at 0 at the positive x axis and increase counterclockwise.</summary>
+//        public float EndAngle { get; private set; }
+
+//        public bool IsUpsideDown { get { return StartAngle > 180; } }
+
+//        public ViewArcSection(PointD center, double radius, float startAngle, float endAngle)
+//            : this()
+//        {
+//            Center = center;
+//            Radius = radius;
+//            ArcSquare = new RectangleF((float)(center.X - radius), (float)(center.Y - radius), (float)(radius * 2), (float)(radius * 2));
+//            StartAngle = startAngle;
+//            EndAngle = endAngle;
+//        }
+
+//        public ViewArcSection(ArcSection arcSection, PointF screenCenter, double pixelsPerCentimeter)
+//            : this()
+//        {
+//            Radius = arcSection.Radius * pixelsPerCentimeter;
+//            Center = new PointD(screenCenter.X + (arcSection.Center.X * pixelsPerCentimeter), screenCenter.Y - (float)(arcSection.Center.Y * pixelsPerCentimeter));
+//            PointF arcRectLocation = new PointF((float)(Center.X - Radius), (float)(Center.Y - Radius));
+//            float size = (float)(Radius * 2);
+//            ArcSquare = new RectangleF(arcRectLocation, new SizeF(size, size));
+//            StartAngle = (float)arcSection.StartAngle;
+//            EndAngle = (float)arcSection.EndAngle;
+//        }
+
+//        public void DrawArc(Graphics g)
+//        {
+            
+//        }
+
+//        public void DrawPoint(Graphics g, double viewAngle)
+//        {
+//            viewAngle += 90;
+
+//            if (IsUpsideDown)
+//                viewAngle += 180;
+
+//            double startAngle = Math.Min(StartAngle, EndAngle);
+//            double endAngle = Math.Max(StartAngle, EndAngle);
+//            if (viewAngle >= startAngle && viewAngle <= endAngle)
+//            {
+//                double angle = viewAngle * Math.PI / 180.0; //for trig math, angle must be in radians
+//                double cosViewAngle = Math.Cos(angle);
+//                double sinViewAngle = Math.Sin(angle);
+//                Point p = new PointD(Center.X + cosViewAngle * Radius, Center.Y - sinViewAngle * Radius).ToPoint();
+//                //Point p = new PointD(Width / 2.0 + (arcSection.Center.X + cosViewAngle * arcSection.Radius) * PixelsPerCentimeter, Height / 2.0 - (arcSection.Center.Y + sinViewAngle * arcSection.Radius) * PixelsPerCentimeter).ToPoint();
+//                Helper.DrawPoint(g, p);
+//            }
+//        }
+//    }
+//}

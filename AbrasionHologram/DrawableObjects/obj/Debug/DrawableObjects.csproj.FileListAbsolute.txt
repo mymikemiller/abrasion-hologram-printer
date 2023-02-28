@@ -1,0 +1,10 @@
+C:\My Documents\MSOE\Senior Design\trunk\Software\AbrasionHologram\DrawableObjects\bin\Debug\DrawableObjects.dll
+C:\My Documents\MSOE\Senior Design\trunk\Software\AbrasionHologram\DrawableObjects\bin\Debug\DrawableObjects.pdb
+C:\My Documents\MSOE\Senior Design\trunk\Software\AbrasionHologram\DrawableObjects\obj\Debug\ResolveAssemblyReference.cache
+C:\My Documents\MSOE\Senior Design\trunk\Software\AbrasionHologram\DrawableObjects\obj\Debug\DrawableObjects.dll
+C:\My Documents\MSOE\Senior Design\trunk\Software\AbrasionHologram\DrawableObjects\obj\Debug\DrawableObjects.pdb
+C:\Users\Mike\Projects\Abrasion Hologram Printer\AbrasionHologram\DrawableObjects\bin\Debug\DrawableObjects.dll
+C:\Users\Mike\Projects\Abrasion Hologram Printer\AbrasionHologram\DrawableObjects\bin\Debug\DrawableObjects.pdb
+C:\Users\Mike\Projects\Abrasion Hologram Printer\AbrasionHologram\DrawableObjects\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Mike\Projects\Abrasion Hologram Printer\AbrasionHologram\DrawableObjects\obj\Debug\DrawableObjects.dll
+C:\Users\Mike\Projects\Abrasion Hologram Printer\AbrasionHologram\DrawableObjects\obj\Debug\DrawableObjects.pdb

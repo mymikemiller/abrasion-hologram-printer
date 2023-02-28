@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/hologram/!svn/ver/56/trunk/Software/AbrasionHologram/Creator/Creator
+END
+CreatorScreen.resx
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hologram/!svn/ver/56/trunk/Software/AbrasionHologram/Creator/Creator/CreatorScreen.resx
+END
+ArcFileOptionChooser.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/hologram/!svn/ver/199/trunk/Software/AbrasionHologram/Creator/Creator/ArcFileOptionChooser.Designer.cs
+END
+ArcFileOptionChooser.cs
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Creator/Creator/ArcFileOptionChooser.cs
+END
+ArcFileCreator.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Creator/Creator/ArcFileCreator.cs
+END
+ArcFileSettings.cs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Creator/Creator/ArcFileSettings.cs
+END
+CreatorCanvas.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Creator/Creator/CreatorCanvas.Designer.cs
+END
+Creator.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Creator/Creator/Creator.csproj
+END
+CreatorCanvas.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Creator/Creator/CreatorCanvas.cs
+END
+Drawing.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/hologram/!svn/ver/85/trunk/Software/AbrasionHologram/Creator/Creator/Drawing.cs
+END
+ArcFileOptionChooser.resx
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/hologram/!svn/ver/76/trunk/Software/AbrasionHologram/Creator/Creator/ArcFileOptionChooser.resx
+END
+CreatorScreen.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Creator/Creator/CreatorScreen.Designer.cs
+END
+CreatorScreen.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Creator/Creator/CreatorScreen.cs
+END
+EdgeTraverser.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Creator/Creator/EdgeTraverser.cs
+END
+Program.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/hologram/!svn/ver/56/trunk/Software/AbrasionHologram/Creator/Creator/Program.cs
+END
+DrawOptions.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Creator/Creator/DrawOptions.cs
+END

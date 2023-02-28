@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9E65D58F-769F-4BE3-A7F4-7B1E23AE21D8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Creator</RootNamespace>
+    <AssemblyName>Creator</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArcFileCreator.cs" />
+    <Compile Include="ArcFileOptionChooser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArcFileOptionChooser.Designer.cs">
+      <DependentUpon>ArcFileOptionChooser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ArcFileSettings.cs" />
+    <Compile Include="CreatorScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreatorScreen.Designer.cs">
+      <DependentUpon>CreatorScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreatorCanvas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreatorCanvas.Designer.cs">
+      <DependentUpon>CreatorCanvas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawOptions.cs" />
+    <Compile Include="EdgeTraverser.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ArcFileOptionChooser.resx">
+      <DependentUpon>ArcFileOptionChooser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreatorScreen.resx">
+      <DependentUpon>CreatorScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DrawableObjects\DrawableObjects.csproj">
+      <Project>{9F9C1386-5279-475F-BBCE-79BC5A017EBB}</Project>
+      <Name>DrawableObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\Utility\Utility.csproj">
+      <Project>{E985E691-C57C-4658-957A-B8E64F0EBC24}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Viewer\Viewer\Viewer.csproj">
+      <Project>{2BDD1610-4D07-4CCC-A2CA-3B01F0990593}</Project>
+      <Name>Viewer %28Viewer\Viewer%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CreatorSupport\CreatorSupport.csproj">
+      <Project>{56F5AB74-FBB6-4C5E-ACD0-0E0ADA4AB4EE}</Project>
+      <Name>CreatorSupport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InputFileParser\InputFileParser.csproj">
+      <Project>{C7CCA181-0619-49BF-910B-76163FCD678B}</Project>
+      <Name>InputFileParser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Primitives\Primitives.csproj">
+      <Project>{36752546-1EE6-4D41-AF76-E61072DA9AFF}</Project>
+      <Name>Primitives</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

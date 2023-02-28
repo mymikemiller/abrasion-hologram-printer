@@ -1,0 +1,367 @@
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Drawing;
+//using System.Drawing.Imaging;
+//using System.Drawing.Drawing2D;
+//using Primitives;
+//using System.Diagnostics;
+//using Utility;
+//using CreatorSupport;
+
+//namespace Creator
+//{
+//    public delegate void SceneChangedHandler();
+
+
+//    public static class Drawing
+//    {
+//        /// <summary>Specifies whether or not this class should respond to events that would cause it to be redrawn. True (should not respond to events) if a drawing operation (onto the off-screen buffer) is already occuring.</summary>
+//        public static bool CurrentlyDrawing { get; set; }
+//        private static bool mDoDraw = false;
+
+//        private static Bitmap mOffScreenBitmap;
+//        private static Graphics mOffScreenGraphics;
+
+//        public static RedrawTypeRequired NextRedraw { get; set; }
+
+//        //internal static ShapeList Shapes { get; private set; }
+
+//        internal static Brush PointBrush { get; set; }
+//        internal static Brush PointBrush_BehindCanvas { get; set; }
+//        internal static Brush PointBrush_InFrontOfCanvas { get; set; }
+//        internal static Brush RedBlueModePointBrush { get; set; }
+//        internal static Pen VectorPen { get; set; }
+//        internal static Pen ArcPen { get; set; }
+
+//        public static Point NullPoint { get { return new Point(int.MaxValue, int.MaxValue); } }
+        
+//        public static event SceneChangedHandler SceneChanged;
+
+//        static Drawing()
+//        {
+//            //todo: properly dispose of these at end of program
+//            PointBrush = Brushes.Blue;
+//            PointBrush_BehindCanvas = Brushes.DarkViolet;
+//            PointBrush_InFrontOfCanvas = Brushes.Blue;
+//            RedBlueModePointBrush = Brushes.Black;
+//            VectorPen = new Pen(Color.Blue, VectorWidth);
+//            ArcPen = new Pen(Color.Gray);
+
+//            mOffScreenBitmap = new Bitmap(10, 10);
+//            mOffScreenGraphics = Graphics.FromImage(mOffScreenBitmap);
+
+//            ViewContext.ViewChanged += new ViewChangedHandler(ViewContext_ViewChanged);
+//            DrawOptions.DrawOptionChanged += new DrawOptionChangedHandler(DrawOptions_DrawOptionChanged);
+//            CurrentlyDrawing = true;
+//        }
+
+//        private static void ViewContext_ViewChanged(RedrawRequiredEventArgs e)
+//        {
+//            RespondToRedrawRequired(e.RedrawTypeRequired);
+//        }
+//        private static void DrawOptions_DrawOptionChanged(RedrawRequiredEventArgs e)
+//        {
+//            RespondToRedrawRequired(e.RedrawTypeRequired);
+//        }
+
+//        private static void RespondToRedrawRequired(RedrawTypeRequired type)
+//        {
+//            NextRedraw = type;
+//            if (!CurrentlyDrawing)
+//                FireSceneChangedEvent();
+//        }
+//        ///<summary>Marks the offscreen buffer as dirty and fires the ScreenChanged event causing it to be redrawn by the host.</summary>
+//        public static void MarkAsDirty(RedrawTypeRequired type)
+//        {
+//            NextRedraw = type;
+//            FireSceneChangedEvent();
+//        }
+
+//        #region Properties
+
+//        /// <summary>Specifies whether or not the screen should be drawn to.</summary>
+//        public static bool DoDraw
+//        {
+//            get
+//            {
+//                return mDoDraw;
+//            }
+//            set
+//            {
+//                if (mDoDraw == value)
+//                    return;
+//                mDoDraw = value;
+//                FireSceneChangedEvent();
+//            }
+//        }
+
+//        public static Size CanvasSize
+//        {
+//            get { return ViewContext.CanvasSize; }
+//            set
+//            {
+//                if (ViewContext.CanvasSize == value)
+//                    return;
+//                ViewContext.CanvasSize = value;
+//                mOffScreenBitmap = new Bitmap(CanvasSize.Width, CanvasSize.Height);
+//                mOffScreenGraphics = Graphics.FromImage(mOffScreenBitmap);
+//            }
+//        }
+//        public static float VectorWidth
+//        {
+//            get
+//            {
+//                if (VectorPen != null)
+//                    return VectorPen.Width;
+//                else
+//                    return 0;
+//            }
+//            set
+//            {
+//                if (VectorPen != null)
+//                    VectorPen.Width = value;
+//            }
+//        }
+//#endregion
+
+
+//        /// <summary>Redraws the current ViewPrimitives list onto the off screen buffer. Calling Blit() will blit it to the supplied graphics object. Returns true if the redraw occurred successfully.</summary>
+//        private static bool ReDraw()
+//        {
+//            if (NextRedraw != RedrawTypeRequired.None)
+//            {
+//                CurrentlyDrawing = true;
+//                if (NextRedraw == RedrawTypeRequired.RecalculateViewPrimitives)
+//                {
+//                    Shapes.Refresh(false);
+//                }
+//                else if (NextRedraw == RedrawTypeRequired.RecalculateAllArcs)
+//                {
+//                    Shapes.Refresh(true);
+//                }
+//                else if (NextRedraw == RedrawTypeRequired.RecalculateArcPositionsOnly)
+//                {
+//                    Shapes.Refresh(true);
+//                }
+
+//                switch (DrawOptions.ViewMode)
+//                {
+//                    case ViewMode.Normal:
+//                        mOffScreenGraphics.Clear(Color.White);
+//                        DrawNormal(mOffScreenGraphics);
+//                        break;
+//                    case ViewMode.RedBlue:
+//                        DrawRedBlue(mOffScreenGraphics);
+//                        break;
+//                    case ViewMode.Stereoscopic:
+//                        mOffScreenGraphics.Clear(Color.White);
+//                        DrawStereoscopic(mOffScreenGraphics);
+//                        break;
+//                    case ViewMode.Print:
+//                        mOffScreenGraphics.Clear(Color.White);
+//                        DrawPrint(mOffScreenGraphics);
+//                        break;
+//                }
+
+//                NextRedraw = RedrawTypeRequired.None;
+//                CurrentlyDrawing = false;
+
+//                FireSceneChangedEvent();
+//            }
+
+//            return true;
+//        }
+
+//        private static void FireSceneChangedEvent()
+//        {
+//            if (SceneChanged != null && DoDraw)
+//                SceneChanged();
+//        }
+//        private static void DrawNormal(Graphics g)
+//        {
+//            if (Shapes.Count > 0)
+//            {
+//                EdgeTraverser.mShapeList = Shapes;
+//                EdgeTraverser.Traverse(g);
+//            }
+//        }
+
+//        private static void DrawRedBlue(Graphics g)
+//        {
+//            bool buShowArcs = DrawOptions.ShowArcs;
+//            DrawOptions.ShowArcs = false;
+
+
+//            float transparency = .6f;
+//            float[][] mtrx = new float[5][] {
+//            new float[] {1.0f, 0.0f, 0.0f, 0.0f, 0.0f},
+//            new float[] {0.0f, 1.0f, 0.0f, 0.0f, 0.0f},
+//            new float[] {0.0f, 0.0f, 1.0f, 0.0f, 0.0f},
+//            new float[] {0.0f, 0.0f, 0.0f, transparency, 0.0f},
+//            new float[] {0.0f, 0.0f, 0.0f, 0.0f, 1.0f}};
+
+
+//            ColorMatrix colorMatrix = new ColorMatrix(mtrx);
+//            using (ImageAttributes ia = new ImageAttributes())
+//            {
+//                ia.SetColorMatrix(colorMatrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
+
+//                Color leftColor = DrawOptions.SwitchLeftRight ? Color.Red : Color.Cyan;
+//                Color rightColor = DrawOptions.SwitchLeftRight ? Color.Cyan : Color.Red;
+
+//                //The rightBitmap will be blitted onto g after the left image is drawn onto g
+//                Bitmap rightBitmap = new Bitmap(ViewContext.CanvasSize.Width, ViewContext.CanvasSize.Height);
+//                Graphics rightGraphics = Graphics.FromImage(rightBitmap);
+
+//                rightGraphics.Clear(rightColor);
+//                g.Clear(leftColor);
+
+//                ViewContext.StereoscopicMode = StereoscopicMode.Left; 
+//                Shapes.Refresh(true);
+                    
+//                DrawNormal(g);
+
+//                ViewContext.StereoscopicMode = StereoscopicMode.Right;
+//                Shapes.Refresh(true);
+                    
+//                DrawNormal(rightGraphics);
+//                ViewContext.StereoscopicMode = StereoscopicMode.NonStereoscopic;
+
+//                Shapes.Refresh(true);
+                    
+
+
+//                g.DrawImage(rightBitmap, new Rectangle(0, 0, rightBitmap.Width, rightBitmap.Height), 0, 0, rightBitmap.Width, rightBitmap.Height, GraphicsUnit.Pixel, ia);
+//            }
+
+//            DrawOptions.ShowArcs = buShowArcs;
+//        }
+//        private static void DrawStereoscopic(Graphics g)
+//        {
+//            //because we're shrinking the drawing, we need to increase the point size.
+//            DrawOptions.PointWidth *= 1.5;
+//            //shrink and move the drawing to the left by manipulating g's TransformMatrix.
+
+//            //offset the first direction (default left)
+//            if (DrawOptions.SwitchLeftRight)
+//                TranslateGraphicsRight(g);
+//            else
+//                TranslateGraphicsLeft(g);
+
+//            ViewContext.StereoscopicMode = StereoscopicMode.Left;
+//            Shapes.Refresh(true);
+//            DrawNormal(g);
+
+//            //now offset the other direction (default right)
+//            if (DrawOptions.SwitchLeftRight)
+//                TranslateGraphicsLeft(g);
+//            else
+//                TranslateGraphicsRight(g);
+
+//            ViewContext.StereoscopicMode = StereoscopicMode.Right;
+//            Shapes.Refresh(true);
+//            DrawNormal(g);
+
+//            //reset the ViewAngle and graphics transform
+//            ViewContext.StereoscopicMode = StereoscopicMode.NonStereoscopic;
+//            Shapes.Refresh(true);
+//            g.ResetTransform();
+//            g.ResetClip();
+//            //set the point size back to where it was.
+//            DrawOptions.PointWidth /= 1.5;
+//        }
+
+//        private static void TranslateGraphicsLeft(Graphics g)
+//        {
+//            Size canvasSize = ViewContext.CanvasSize;
+//            g.ResetTransform();
+//            g.ResetClip();
+//            g.SetClip(new Rectangle(0,0,canvasSize.Width / 2, canvasSize.Height));
+//            ShrinkGraphics(g);
+//            g.TranslateTransform(-canvasSize.Width / 4, 0, MatrixOrder.Append);
+//        }
+//        private static void TranslateGraphicsRight(Graphics g)
+//        {
+//            Size canvasSize = ViewContext.CanvasSize;
+//            g.ResetTransform();
+//            g.ResetClip();
+//            g.SetClip(new Rectangle(canvasSize.Width / 2, 0, canvasSize.Width / 2, canvasSize.Height));
+//            ShrinkGraphics(g);
+//            g.TranslateTransform(canvasSize.Width / 4, 0, MatrixOrder.Append);
+//        }
+//        private static void ShrinkGraphics(Graphics g)
+//        {
+//            Size canvasSize = ViewContext.CanvasSize;
+//            //in reverse order, do the following: translate center to 0,0, shrink, translate center back.
+//            g.TranslateTransform(canvasSize.Width / 2, canvasSize.Height / 2);
+//            g.ScaleTransform(.5f, .5f);
+//            g.TranslateTransform(-canvasSize.Width / 2, -canvasSize.Height / 2);
+//        }
+
+
+//        private static void DrawPrint(Graphics g)
+//        {
+//            DrawNormal(g);
+
+//            foreach (IndexedFaceSet ifs in EdgeTraverser.mShapeList)
+//            {
+//                foreach (Edge e in ifs.Edges)
+//                {
+//                    Rectangle r = Transformer.GetArcSquare(e.StartVertex.ViewCoord_ZeroAngle);
+//                    Point center = new Point(r.X + (int)(r.Width / 2), r.Y + (int)(r.Height / 2));
+//                    g.FillEllipse(Brushes.Black, new Rectangle(center.X - 1, center.Y - 1, 3, 3));
+//                }
+//            }
+//        }
+
+
+
+        
+
+
+//        /// <summary>
+//        /// Blits the off-screen buffer onto the supplied Graphics object. This function should be called from the consuming usercontrol's OnPaint function.
+//        /// </summary>
+//        /// <param name="g"></param>
+//        public static void Blit(Graphics g)
+//        {
+//            if (DoDraw)
+//            {
+//                if (NextRedraw != RedrawTypeRequired.None)
+//                    ReDraw();
+
+//                g.ResetTransform();
+//                if (DrawOptions.RotateCanvas)
+//                {
+//                    /*
+//                     * Rotate 180 degrees about the center of the View. To do this, 
+//                     * we rotate 180 about the top-left (which puts the rotated image 
+//                     * above and to the left of the view), then translate back onto the 
+//                     * screen. Matrix operations are done in reverse.
+//                     */
+//                    g.TranslateTransform(CanvasSize.Height, CanvasSize.Width);
+//                    g.RotateTransform(180);
+//                }
+//                g.DrawImageUnscaled(mOffScreenBitmap, 0, 0);
+//            }
+//        }
+
+//        public static void AddShape(IndexedFaceSet ifs)
+//        {
+//            Shapes.Add(ifs);
+//            MarkAsDirty(RedrawTypeRequired.RecalculateViewPrimitives);
+//        }
+
+//        public static void ClearShapes()
+//        {
+//            Shapes.Clear();
+//        }
+
+//        public static void PreProcessShapes()
+//        {
+//            Shapes.PreProcess();
+//        }
+//    }
+//}

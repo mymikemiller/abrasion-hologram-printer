@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/hologram/!svn/ver/56/trunk/Software/AbrasionHologram/Shared/Utility
+END
+Helper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Shared/Utility/Helper.cs
+END
+ArcViewContainer.resx
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/hologram/!svn/ver/79/trunk/Software/AbrasionHologram/Shared/Utility/ArcViewContainer.resx
+END
+ImageViewer.resx
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/hologram/!svn/ver/76/trunk/Software/AbrasionHologram/Shared/Utility/ImageViewer.resx
+END
+BufferedControl.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/hologram/!svn/ver/76/trunk/Software/AbrasionHologram/Shared/Utility/BufferedControl.Designer.cs
+END
+BufferedControl.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Shared/Utility/BufferedControl.cs
+END
+ViewArcSection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/hologram/!svn/ver/96/trunk/Software/AbrasionHologram/Shared/Utility/ViewArcSection.cs
+END
+ProportionalControl.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/hologram/!svn/ver/76/trunk/Software/AbrasionHologram/Shared/Utility/ProportionalControl.Designer.cs
+END
+ProportionalControl.cs
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Shared/Utility/ProportionalControl.cs
+END
+ArcSection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Shared/Utility/ArcSection.cs
+END
+PointD.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Shared/Utility/PointD.cs
+END
+GaussianEliminator.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/hologram/!svn/ver/56/trunk/Software/AbrasionHologram/Shared/Utility/GaussianEliminator.cs
+END
+Utility.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/hologram/!svn/ver/199/trunk/Software/AbrasionHologram/Shared/Utility/Utility.csproj
+END
+BufferedControl.resx
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/hologram/!svn/ver/76/trunk/Software/AbrasionHologram/Shared/Utility/BufferedControl.resx
+END
+ArcView.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hologram/!svn/ver/79/trunk/Software/AbrasionHologram/Shared/Utility/ArcView.Designer.cs
+END
+ArcView.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Shared/Utility/ArcView.cs
+END
+ArcViewContainer.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/hologram/!svn/ver/79/trunk/Software/AbrasionHologram/Shared/Utility/ArcViewContainer.Designer.cs
+END
+ImageViewer.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/hologram/!svn/ver/76/trunk/Software/AbrasionHologram/Shared/Utility/ImageViewer.Designer.cs
+END
+ArcViewContainer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Shared/Utility/ArcViewContainer.cs
+END
+Matrix.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/hologram/!svn/ver/56/trunk/Software/AbrasionHologram/Shared/Utility/Matrix.cs
+END
+ImageViewer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Shared/Utility/ImageViewer.cs
+END
+ArcFile.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Shared/Utility/ArcFile.cs
+END
+ProportionalControl.resx
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/hologram/!svn/ver/76/trunk/Software/AbrasionHologram/Shared/Utility/ProportionalControl.resx
+END
+Coord.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/hologram/!svn/ver/100/trunk/Software/AbrasionHologram/Shared/Utility/Coord.cs
+END
+Row.cs
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hologram/!svn/ver/56/trunk/Software/AbrasionHologram/Shared/Utility/Row.cs
+END
+MruStripMenu.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/hologram/!svn/ver/56/trunk/Software/AbrasionHologram/Shared/Utility/MruStripMenu.cs
+END

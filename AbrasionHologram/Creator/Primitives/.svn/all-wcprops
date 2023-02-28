@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hologram/!svn/ver/56/trunk/Software/AbrasionHologram/Creator/Primitives
+END
+IndexedFaceSet.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Creator/Primitives/IndexedFaceSet.cs
+END
+EdgeCoord.cs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/hologram/!svn/ver/220/trunk/Software/AbrasionHologram/Creator/Primitives/EdgeCoord.cs
+END
+ShapeList.cs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Creator/Primitives/ShapeList.cs
+END
+Vertex.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Creator/Primitives/Vertex.cs
+END
+IndexedFace.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hologram/!svn/ver/237/trunk/Software/AbrasionHologram/Creator/Primitives/IndexedFace.cs
+END
+Edge.cs
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/hologram/!svn/ver/220/trunk/Software/AbrasionHologram/Creator/Primitives/Edge.cs
+END
+Intersection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/hologram/!svn/ver/220/trunk/Software/AbrasionHologram/Creator/Primitives/Intersection.cs
+END
+Primitives.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/hologram/!svn/ver/100/trunk/Software/AbrasionHologram/Creator/Primitives/Primitives.csproj
+END
+EdgeSection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hologram/!svn/ver/220/trunk/Software/AbrasionHologram/Creator/Primitives/EdgeSection.cs
+END
