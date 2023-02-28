@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<head>
+	<meta name="filename" content="memory" />
+	<meta name="generator" content="Blender 245" />
+	<meta name="translator" content="X3D exporter v1.55 (2006/01/17)" />
+</head>
+<Scene>
+
+<NavigationInfo headlight="FALSE" visibilityLimit="100.0" type="EXAMINE, ANY" avatarSize="0.25, 1.75, 0.75" />
+
+<Background groundColor="0.057 0.221 0.4" skyColor="0.057 0.221 0.4" />
+
+<Transform DEF="Cube" translation="0.0 0.0 0.0">
+	<Shape>
+		<Appearance>
+			<Material DEF="MA_Material" diffuseColor="0.8 0.8 0.8" specularColor="0.401 0.401 0.401" emissiveColor="0.0 0.0 0.0" 
+				ambientIntensity="0.167" shininess="0.098" transparency="0.0" />			
+		</Appearance>
+		<IndexedFaceSet solid="true" coordIndex="0 1 2 3 -1, 0 2 3 -1, 0 3 4 -1, 0 4 5 -1, ">
+			<Coordinate DEF="coord_Cube" 
+				point="0 3 3, -2.5 3 -3, -.5 3 -3, 0 1.5 -3, .5 3 -3, 2.5 3 -3, " />			
+		</IndexedFaceSet>
+	</Shape>
+</Transform>
+
+<PointLight DEF="Lamp" ambientIntensity="0.0" color="1.0 1.0 1.0" intensity="0.571" radius="29.9999828339" location="4.076 1.005 5.904" />
+
+<Viewpoint DEF="Camera" description="Camera" centerOfRotation="0 0 0" position="7.48 5.34 6.51" orientation="-1.05 1.91 0.47 0.93" fieldOfView="0.661" />
+
+
+
+</Scene>
+</X3D>

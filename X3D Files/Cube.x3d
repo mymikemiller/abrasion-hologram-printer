@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<head>
+	<meta name="filename" content="Cube.x3d" />
+	<meta name="generator" content="Blender 248" />
+	<meta name="translator" content="X3D exporter v1.55 (2006/01/17)" />
+</head>
+<Scene>
+<NavigationInfo headlight="FALSE" visibilityLimit="0.0" type='"EXAMINE","ANY"' avatarSize="0.25, 1.75, 0.75" />
+<Background groundColor="0.057 0.221 0.4" skyColor="0.057 0.221 0.4" />
+
+<Collision enabled="false">
+	<Transform DEF="Cube" translation="0.000000 0.000000 0.000000" scale="1.000000 1.000000 1.000000" rotation="-1.000000 0.000000 0.000000 1.570796">
+	<Shape>
+		<IndexedFaceSet solid="true" coordIndex="0 1 2 3 -1, 4 7 6 5 -1, 0 4 5 1 -1, 1 5 6 2 -1, 2 6 7 3 -1, 4 0 3 7 -1, ">
+			<Coordinate DEF="coord_Cube" 
+				point="1.000000 1.000000 -1.000000, 1.000000 -1.000000 -1.000000, -1.000000 -1.000000 -1.000000, -1.000000 1.000000 -1.000000, 1.000000 0.999999 1.000000, 0.999999 -1.000001 1.000000, -1.000000 -1.000000 1.000000, -1.000000 1.000000 1.000000, " />			
+		</IndexedFaceSet>
+	</Shape>
+</Transform>
+</Collision>
+
+
+</Scene>
+</X3D>
